@@ -1,1 +1,10 @@
 @import "style";
+html, body {
+  height: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  background: #777;
+  position: relative; }
+
+body {
+  margin: 0;
+  padding: 0; }

@@ -6,8 +6,7 @@ module.exports = {
   devtool:"eval",
   entry: {
     app:[
-      './src/app/main.js',
-      './src/style/main.scss'
+      './src/app/main.js'
     ]
   },
   resolve: {
@@ -23,7 +22,7 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loader:ExtractTextPlugin.extract('style', 'css!sass'),
+        loader:'style!css?sourceMap!sass?sourceMap',
         include: /src\/style/
       },
       {test: /\.js$/, loader:'ng-annotate'}
@@ -33,9 +32,7 @@ module.exports = {
     includePaths: [path.resolve(__dirname, 'bower_components', 'angular-material-sass-files')]
   },
   plugins: [
-    new ExtractTextPlugin('assets/css/[name].css',{
-      allChunks: true
-    }),
+    new ExtractTextPlugin('assets/css/[name].css'),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     )

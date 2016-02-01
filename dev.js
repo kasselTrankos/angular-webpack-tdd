@@ -3,14 +3,13 @@ var webpack = require('webpack'),
   webpackConfig = require('./webpack.config'),
   path = require('path');
 webpackConfig.entry.app.unshift(
-  'webpack-dev-server/client?http://localhost:3000',
-  'webpack/hot/dev-server'
+  'webpack-dev-server/client?http://localhost:3000'
 );
 webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
 var compiler = webpack(webpackConfig);
 var server = new webpackDevServer(compiler, {
-  hot: true,
-  inline: true,
+  //hot: true,
+  //inline: true,
   publicPath:  webpackConfig.output.publicPath,
   stats: { colors: true },
   noInfo: true,
