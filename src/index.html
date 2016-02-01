@@ -7,12 +7,12 @@
 
   </head>
   <body>
-    <div id="wrapper" ng-strict-di ng-app="ats.main" ng-controller="AppCtrl as vm" layout="column">
+    <div id="wrapper" ng-strict-di ng-app="ats.main" ng-controller="AppController as vm" layout="column">
       <md-toolbar layout-align="center center">
         {{vm.title}}
       </md-toolbar>
-      <div layout="row">
-        <div ng-repeat="phone in vm.phones" layout="row">
+      <div layout="row" layout-wrap>
+        <div ng-repeat="phone in vm.phones" layout="row" flex="66">
           <p>{{phone.name}} is {{phone.snippet}}</p>
         </div>
       </div>

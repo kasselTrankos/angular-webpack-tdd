@@ -4,7 +4,7 @@ var webpack = require('webpack'),
   fs = require('fs');
 
 module.exports = {
-  devtool:"eval",
+  devtool:"source-map",
   entry: {
     app:[
       './src/index.html',
@@ -16,6 +16,7 @@ module.exports = {
     extensions: ['', '.js']
   },
   output: {
+    sourceMapFilename:'[file].map',
     publicPath: '/assets/js/',
     filename: '[name].js',
     path: path.resolve(__dirname , 'public')
@@ -44,6 +45,7 @@ module.exports = {
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     ),
     function ReplaceBundleSrc() {
+      //update html file
       this.plugin("done", function (stats) {
 
         var opts = stats.compilation.options;
@@ -51,7 +53,6 @@ module.exports = {
         var indexHtmlPath = path.join(opts.output.path, "index.html");
         var originalHtmlPath = opts.entry.app[1];
         var bundleJs = opts.output.filename.replace(/\[hash]/, stats.compilation.hash);
-        console.log(bundleJs, indexHtmlPath, originalHtmlPath);
         fs.writeFileSync(
           indexHtmlPath,
           fs.readFileSync(originalHtmlPath, "utf8").replace(/% BUNDLE %/, bundleJs)
