@@ -1,3 +1,4 @@
 require('angular');
-angular.module('ats.main', [])
+require('angular-material');
+angular.module('ats.main', ['ngMaterial'])
   .controller('AppCtrl', require('./controllers/AppCtrl'));

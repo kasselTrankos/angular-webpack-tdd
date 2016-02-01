@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.9"
+    "angular": "~1.4.9",
+    "angular-material": "~1.0.4",
+    "angular-material-sass-files": "~0.8.3"
   }
 }
