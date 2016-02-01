@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha --reporter spec",
     "dev": "node_modules/.bin/webpack && node dev",
     "lint": "node_modules/.bin/eslint -c .eslintrc src api"
   },
@@ -14,11 +14,14 @@
     "angular-hmr": "git+https://github.com/yargalot/Angular-HMR.git",
     "babel": "^6.3.26",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.4.5",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.15.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-loader": "^0.4.0",
+    "karma": "^0.13.19",
+    "mocha": "^2.4.5",
     "ng-annotate-loader": "^0.1.0",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
