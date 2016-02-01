@@ -8,8 +8,8 @@ webpackConfig.entry.app.unshift(
 webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
 var compiler = webpack(webpackConfig);
 var server = new webpackDevServer(compiler, {
-  //hot: true,
-  //inline: true,
+  // hot: true,
+  // inline: true,
   publicPath:  webpackConfig.output.publicPath,
   stats: { colors: true },
   noInfo: true,
