@@ -1,4 +1,8 @@
 @import "style";
+@import "variables";
+@import "components/layout";
+@import "components/toolbar";
+
 html, body {
   height: 100%;
   color: rgba(0, 0, 0, 0.87);

@@ -1,11 +1,13 @@
 var webpack = require('webpack'),
   ExtractTextPlugin = require("extract-text-webpack-plugin"),
-  path = require('path');
+  path = require('path'),
+  fs = require('fs');
 
 module.exports = {
   devtool:"eval",
   entry: {
     app:[
+      './src/index.html',
       './src/app/main.js'
     ]
   },
@@ -25,6 +27,10 @@ module.exports = {
         loader:'style!css?sourceMap!sass?sourceMap',
         include: /src\/style/
       },
+      {
+        test: /\.html/,
+        loader:'html'
+      },
       {test: /\.js$/, loader:'ng-annotate'}
     ]
   },
@@ -33,8 +39,24 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('assets/css/[name].css'),
+    new ExtractTextPlugin('[name].html'),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
+    ),
+    function ReplaceBundleSrc() {
+      this.plugin("done", function (stats) {
+
+        var opts = stats.compilation.options;
+
+        var indexHtmlPath = path.join(opts.output.path, "index.html");
+        var originalHtmlPath = opts.entry.app[1];
+        var bundleJs = opts.output.filename.replace(/\[hash]/, stats.compilation.hash);
+        console.log(bundleJs, indexHtmlPath, originalHtmlPath);
+        fs.writeFileSync(
+          indexHtmlPath,
+          fs.readFileSync(originalHtmlPath, "utf8").replace(/% BUNDLE %/, bundleJs)
+        );
+      });
+    }
   ]
 };
