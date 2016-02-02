@@ -25,3 +25,4 @@ addons:
 
 script:
   - npm run lint
+  - npm run jshint

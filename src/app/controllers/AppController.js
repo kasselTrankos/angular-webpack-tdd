@@ -1,5 +1,5 @@
 /* @ngInject */
-var AppController = function($scope){
+var AppController = function(){
   var vm = this;
   vm.title = 'Main APP from Twitter';
   vm.phones = [
@@ -10,5 +10,5 @@ var AppController = function($scope){
     {'name': 'MOTOROLA XOOM™',
      'snippet': 'The Next, Next Generation tablet.'}
   ];
-}
+};
 module.exports = AppController;

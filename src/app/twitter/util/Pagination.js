@@ -15,9 +15,7 @@ module.exports = function(tweets, tweetPerPage, showPagesPagination){
       currentPage :
       (isinLastSectionPagination()) ? parseInt(getPages()-ShowPagesPagination)
       : Math.ceil(currentPage-getMiddlePage());
-
   }
-
   function lessThanMiddle(){
     return (currentPage<=getMiddlePage());
   }
@@ -35,5 +33,5 @@ module.exports = function(tweets, tweetPerPage, showPagesPagination){
     setActualPage: setActualPage,
     getFirstPage: getFirstPage,
     showNavigationNextButton: showNavigationNextButton
-  }
-}
+  };
+};

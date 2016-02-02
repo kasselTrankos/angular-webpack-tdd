@@ -7,7 +7,8 @@
     "test": "./node_modules/.bin/mocha -G -R  mocha-better-spec-reporter --reporter-options show-back-order=true --compilers js:babel-core/register",
     "dev": "node_modules/.bin/webpack && \"node dev\"",
     "proxy": "node_modules/.bin/webpack && node_modules/.bin/nf start",
-    "lint": "node_modules/.bin/eslint -c .eslintrc src api"
+    "lint": "node_modules/.bin/eslint -c .eslintrc src api",
+    "jshint": "node_modules/.bin/jshint --verbose src/app" 
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "foreman": "^1.4.1",
     "html-loader": "^0.4.0",
     "http-proxy": "^1.13.1",
+    "jshint": "^2.9.1",
     "karma": "^0.13.19",
     "mocha": "^2.4.5",
     "mocha-better-spec-reporter": "^3.0.1",

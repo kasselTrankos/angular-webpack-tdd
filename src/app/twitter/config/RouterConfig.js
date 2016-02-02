@@ -18,6 +18,6 @@ var RouterConfig = function($stateProvider, $urlRouterProvider, $locationProvide
     enabled: true,
     requireBase: false
   });
-}
+};
 
 module.exports = RouterConfig;

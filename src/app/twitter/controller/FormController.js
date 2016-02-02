@@ -1,5 +1,5 @@
 /* @ngInject */
-var FormController = function($scope){
+var FormController = function(){
 
-}
+};
 module.exports = FormController;
