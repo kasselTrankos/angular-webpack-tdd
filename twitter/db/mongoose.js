@@ -1,3 +1,5 @@
+'strict mode';
+
 import Mongoose from 'mongoose';
 const urlDatabase = process.env.MONGODB;
 export const Schema = Mongoose.Schema;
@@ -82,8 +84,7 @@ export const TwitterTweet = new Schema({
   contributors: {type: Array},
   text: {type: String},
   retweet_count: {type: Number},
-  in_reply_to_status_id_str: {type: String},
-  id: {type: Number},
+  in_reply_to_status_id_str: {type: String},  
   geo: {type: String},
   retweeted: {type: Boolean},
   possibly_sensitive: {type: Boolean},
