@@ -3,3 +3,4 @@ export {TwitterTweetModel, TwitterTweet,
   TwitterTokenModel, TwitterToken, close, connect, disconnect} from './mongoose';
 export {findAllTweetsByAccount, PushMongoTimelineRest,
   InsertTweet, GetIdFromAccount, ExistsTweet} from './querys';
+export {GetAllAccounts, ExitsAccount} from './account';

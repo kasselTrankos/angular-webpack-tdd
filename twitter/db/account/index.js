@@ -1,19 +1,17 @@
 import Q from 'q';
-import {connect, close,
- TwitterAccountModel} from './../index';
+import {TwitterAccountModel} from './../index';
 export const SaveNewAccount = (accountName)=>{
   let deferred = Q.defer();
   const Account = new TwitterAccountModel({name: accountName});
-  console.log(Account, ' SAE', accountName);
   Account.save((err, doc, numAffected)=> {
     if(err) deferred.reject(err);
     else deferred.resolve(doc);
   });
   return deferred.promise;
 }
-export const GetAll = ()=>{
+export const GetAllAccounts = ()=>{
   let deferred = Q.defer();
-  TwitterAccountModel.find({}, '',(err, doc)=>{
+  TwitterAccountModel.find({}, '', (err, doc)=>{
     if(!err)  {
       deferred.resolve(doc);
     }else{
