@@ -14,7 +14,6 @@ export const findAllTweetsByAccount = (account, sort={created_at:-1})=>{
   });
   return deferred.promise;
 }
-
 export const PushMongoTimelineRest = (tweets, account, account_id)=>{
   let i=0; const l = tweets.length;
   let deferred = Q.defer();

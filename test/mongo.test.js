@@ -10,16 +10,10 @@ var expect = require("chai").expect;
 chai.use(chaiAsPromised);
 before(function(done){
   process.env['MONGODB'] = 'mongodb://localhost:27017/vera';
-    Timeline('kasselTrankos').then((docs)=>{
-      PushMongoTimelineRest(docs, 'kasselTrankos', '0001');
-      if (Mongoose.connection.readyState === 0) {
-        connect();
-      }
-      return done();
-    }).catch((err)=>{
-    console.log(' no debiera tener ningun error', err);
-  });
-
+  if (Mongoose.connection.readyState === 0) {
+    connect();
+  }
+  return done();
 });
 after(function (done) {
   disconnect();

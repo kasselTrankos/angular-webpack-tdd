@@ -26,3 +26,6 @@ addons:
 script:
   - npm run lint
   - npm run jshint
+before_script:
+  - sleep 15
+  - node travis/mongodb
