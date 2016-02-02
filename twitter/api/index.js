@@ -1,2 +1,2 @@
-export client from './twitter';
+export {client} from './twitter';
 export {Timeline} from './rest';
