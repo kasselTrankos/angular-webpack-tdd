@@ -19,6 +19,7 @@
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.15.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
     "html-loader": "^0.4.0",
     "karma": "^0.13.19",
     "mocha": "^2.4.5",

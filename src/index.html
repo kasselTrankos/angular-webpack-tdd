@@ -9,13 +9,10 @@
   <body>
     <div id="wrapper" ng-strict-di ng-app="ats.main" ng-controller="AppController as vm" layout="column">
       <md-toolbar layout-align="center center">
-        {{vm.title}}
+        {{vm.title}}<i class="fa fa-camera-retro"></i>
       </md-toolbar>
-      <div layout="row" layout-wrap>
-        <div ng-repeat="phone in vm.phones" layout="row" flex="66">
-          <p>{{phone.name}} is {{phone.snippet}}</p>
-        </div>
-      </div>
+
+      <div ui-view></div>
 
     </div>
     <script src="assets/js/app.js"></script>

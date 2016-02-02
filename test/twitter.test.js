@@ -15,5 +15,9 @@ describe('Pagination for Tweets', function() {
       expect(Pagination(Tweets, TweetsByPage, ShowPagesPagination)
       .setActualPage(6).getFirstPage()).to.equal(3);
     });
+    it('Expect to show next navigation button when page is 10', function(){
+      expect(Pagination(Tweets, TweetsByPage, ShowPagesPagination)
+      .setActualPage(10).showNavigationNextButton()).to.be.true;
+    });
   });
 });

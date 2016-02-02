@@ -1,14 +1,21 @@
 @import "style";
 @import "variables";
 @import "components/list";
+@import "components/input";
 @import "components/layout";
 @import "components/toolbar";
 
+/*@import "scss/variables.scss";
+$fa-font-path: "";
+
+@import "scss/path.scss";*/
 html, body {
   height: 100%;
   color: rgba(0, 0, 0, 0.87);
-  background: #777;
-  position: relative; }
+  background: #779911;
+  position: relative;
+  font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 body {
   margin: 0;

@@ -27,16 +27,24 @@ module.exports = {
         test: /\.scss$/,
         loader:'style!css?sourceMap!sass?sourceMap',
         include: /src\/style/
-      },
-      {
+      }, {
         test: /\.html/,
         loader:'html'
+      }, {
+        test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
+        loader: 'file?name=fonts/[name].[ext]'
+      }, {
+        test: /\.css$/,
+        loader: "style!css"
       },
       {test: /\.js$/, loader:'ng-annotate'}
     ]
   },
   sassLoader: {
-    includePaths: [path.resolve(__dirname, 'bower_components', 'angular-material-sass-files')]
+    includePaths: [
+      path.resolve(__dirname, 'bower_components', 'angular-material-sass-files'),
+      path.resolve(__dirname, 'bower_components', 'font-awesome')
+    ]
   },
   plugins: [
     new ExtractTextPlugin('assets/css/[name].css'),
