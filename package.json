@@ -36,6 +36,7 @@
     "piping": "^0.3.0",
     "pretty-error": "^2.0.0",
     "proxy-middleware": "^0.15.0",
+    "q": "^1.4.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",
