@@ -21,6 +21,20 @@ export const GetAllAccounts = ()=>{
   });
   return deferred.promise;
 }
+export const GetIdFromAccount = (accountName)=>{
+  let deferred = Q.defer();
+  TwitterAccountModel.findOne({
+    name:accountName
+  }, '', (err, doc)=>{
+    if(err) {
+      console.log('ERROR en querys.GetIdFromAccount:',err, 'account', account);
+      deferred.reject(err);
+    }else {
+      deferred.resolve(doc);
+    }
+  })
+  return deferred.promise;
+}
 export const ExitsAccount=(accountName)=>{
   let deferred = Q.defer();
   TwitterAccountModel.findOne({name: accountName}, '',(err, doc)=>{

@@ -1,6 +1,5 @@
 import Q from 'q';
-import {close,
-  TwitterTweetModel, TwitterAccountModel} from './index';
+import {TwitterTweetModel, TwitterAccountModel} from './../index';
 export const findAllTweetsByAccount = (account, sort={created_at:-1})=>{
   let deferred = Q.defer();
   TwitterTweetModel.find({
@@ -15,21 +14,7 @@ export const findAllTweetsByAccount = (account, sort={created_at:-1})=>{
   });
   return deferred.promise;
 }
-//esto debe ira a account so torpe!!!
-export const GetIdFromAccount = (accountName)=>{
-  let deferred = Q.defer();
-  TwitterAccountModel.findOne({
-    name:accountName
-  }, '', (err, doc)=>{
-    if(err) {
-      console.log('ERROR en querys.GetIdFromAccount:',err, 'account', account);
-      deferred.reject(err);
-    }else {
-      deferred.resolve(doc);
-    }
-  })
-  return deferred.promise;
-}
+
 export const PushMongoTimelineRest = (tweets, account, account_id)=>{
   let i=0; const l = tweets.length;
   let deferred = Q.defer();
@@ -59,7 +44,6 @@ export const PushMongoTimelineRest = (tweets, account, account_id)=>{
     }else {
       deferred.reject(response.error);
     }
-  //  close();
   });
   return deferred.promise;
 }

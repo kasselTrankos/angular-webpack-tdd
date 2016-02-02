@@ -2,5 +2,6 @@ export {TwitterTweetModel, TwitterTweet,
   TwitterAccountModel, TwitterAccount, Schema,
   TwitterTokenModel, TwitterToken, close, connect, disconnect} from './mongoose';
 export {findAllTweetsByAccount, PushMongoTimelineRest,
-  InsertTweet, GetIdFromAccount, ExistsTweet} from './querys';
-export {GetAllAccounts, ExitsAccount} from './account';
+  InsertTweet, ExistsTweet} from './tweet';
+export {GetAllAccounts, ExitsAccount,
+  GetIdFromAccount} from './account';
