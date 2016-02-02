@@ -43,8 +43,8 @@ if (port)
     if (err) {
       console.error(err);
     }
-    console.info('----\n==>::::TWITTER is running on port %s', port);
-    console.info('==>:::Send requests to http://%s:%s', port, host);
+    //console.info('----\n==>::::TWITTER is running on port %s', port);
+    console.info('==>:::TWITTER is running at http://%s:%s', port, host);
   });
   io.listen(runnable);
 } else {

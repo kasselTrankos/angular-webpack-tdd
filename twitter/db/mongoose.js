@@ -1,5 +1,5 @@
 import Mongoose from 'mongoose';
-const urlDatabase = 'mongodb://localhost:27017/vera';
+const urlDatabase = process.env.MONGODB;
 export const Schema = Mongoose.Schema;
 /////////////event handler for mongoose
 const conn = Mongoose.connection.on('connected', function () {

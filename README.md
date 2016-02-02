@@ -9,7 +9,7 @@ Then install bower dependencies:
 bower i
 ```
 then i'm using [foreman](https://github.com/strongloop/node-foreman) for multiples threads at time,
-then:
+so run it by:
 ```bash
 npm run proxy
 ```
