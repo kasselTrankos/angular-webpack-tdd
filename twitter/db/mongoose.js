@@ -1,20 +1,26 @@
 import Mongoose from 'mongoose';
 const urlDatabase = process.env.MONGODB;
 export const Schema = Mongoose.Schema;
+
 /////////////event handler for mongoose
 const conn = Mongoose.connection.on('connected', function () {
-  //console.log('Mongoose default connection open to twitter app');
+  // console.log('Mongoose default connection open to twitter app');
 });
 Mongoose.connection.on('error',function (err) {
-  console.log('Mongoose default connection error: ' + err);
+  // console.log('Mongoose default connection error: ' + err);
 });
 Mongoose.connection.on('disconnected', function () {
-  //console.log('Mongoose default connection disconnected');
+  // console.log('Mongoose default connection disconnected');
 });
 
 export const close = ()=>{
   Mongoose.connection.close(function () {
     //console.log('Mongoose default connection disconnected through app termination');
+  });
+}
+export const disconnect = ()=>{
+  Mongoose.disconnect((err)=>{
+    return (!err);
   });
 }
 
@@ -34,9 +40,9 @@ export const connect = ()=> {
           }
       }
   };
-
-  //Mongoose.connection.close(function () {});
-  Mongoose.connect(urlDatabase, mongoOptions);
+  return Mongoose.connect(urlDatabase || process.env.MONGODB, mongoOptions, function(err){
+    return (!err);
+  });
 }
 export const TwitterToken = new Schema({
   access_token: {type: String, default: '', index:true},

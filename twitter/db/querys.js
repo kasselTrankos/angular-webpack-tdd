@@ -1,5 +1,5 @@
 import Q from 'q';
-import {connect, close,
+import {close,
   TwitterTweetModel, TwitterAccountModel} from './index';
 export const findAllTweetsByAccount = (account, sort={created_at:-1})=>{
   let deferred = Q.defer();
@@ -10,8 +10,8 @@ export const findAllTweetsByAccount = (account, sort={created_at:-1})=>{
       deferred.resolve(docs);
     }else{
       console.log('ERROR en querys.findAllTweetsByAccount:',err, 'account', account);
-       deferred.reject(err);
-     }
+      deferred.reject(err);
+    }
   });
   return deferred.promise;
 }

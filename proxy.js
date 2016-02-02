@@ -3,7 +3,7 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
-
+///#####THIRD PARTY
 var express = require('express');
 var httpProxy = require('http-proxy');
 var url = require('url');
@@ -21,6 +21,7 @@ var ws = httpProxy.createProxyServer({
   ws:true
 });
 app.use('/apitwitter', proxy(url.parse(apiTwitter)));
+app.use('/ws', function(req, res){ws.web(req, res);});
 app.get('/*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });

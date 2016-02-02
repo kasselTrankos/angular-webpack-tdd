@@ -5,3 +5,4 @@ public/css
 public/assets
 npm-debug.log
 .env
+test/mongo.test.js
