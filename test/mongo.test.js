@@ -1,15 +1,19 @@
 import {connect, disconnect, ExitsAccount,
-  findAllTweetsByAccount, GetAllAccounts} from './../twitter/db';
+  findAllTweetsByAccount, GetAllAccounts,
+  PushMongoTimelineRest} from './../twitter/db';
+import {Timeline} from './../twitter/api';
 import Mongoose from 'mongoose';
 
 import chaiAsPromised from 'chai-as-promised';
 import chai from 'chai';
 var expect = require("chai").expect;
 chai.use(chaiAsPromised);
-
-
 before(function(done){
   process.env['MONGODB'] = 'mongodb://localhost:27017/vera';
+    Timeline('kasselTrankos').then((docs)=>PushMongoTimelineRest(docs, 'kasselTrankos', '0001')
+  ).catch((err)=>{
+    console.log(' no debiera tener ningun error', err);
+  });
   if (Mongoose.connection.readyState === 0) {
     connect();
   }
