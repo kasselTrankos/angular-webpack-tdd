@@ -19,20 +19,22 @@ after(function (done) {
   disconnect();
   return done();
 });
-describe('Tweets::Accounts::Twitter', function(){
-  it('expect minium of 2 accounts', function(done){
-    expect(GetAllAccounts())
-    .to.eventually.have.length.of.at.least(2)
-    .notify(done);
+if(!process.env.TRAVIS){
+  describe('Tweets::Accounts::Twitter', function(){
+    it('expect minium of 2 accounts', function(done){
+      expect(GetAllAccounts())
+      .to.eventually.have.length.of.at.least(2)
+      .notify(done);
+    });
+    it('expect exists(not null) kasselTrankos account', function(done){
+      expect(ExitsAccount('kasselTrankos'))
+      .not.to.eventually.null
+      .notify(done);
+    });
+    it('expect minium of 10 tweets from kasselTrankos', function(done){
+      expect(findAllTweetsByAccount('kasselTrankos'))
+      .to.eventually.have.length.of.at.least(10)
+      .notify(done);
+    });
   });
-  it('expect exists(not null) kasselTrankos account', function(done){
-    expect(ExitsAccount('kasselTrankos'))
-    .not.to.eventually.null
-    .notify(done);
-  });
-  it('expect minium of 10 tweets from kasselTrankos', function(done){
-    expect(findAllTweetsByAccount('kasselTrankos'))
-    .to.eventually.have.length.of.at.least(10)
-    .notify(done);
-  });
-});
+}

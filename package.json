@@ -8,7 +8,7 @@
     "dev": "node_modules/.bin/webpack && \"node dev\"",
     "proxy": "node_modules/.bin/webpack && node_modules/.bin/nf start",
     "lint": "node_modules/.bin/eslint -c .eslintrc src api",
-    "jshint": "node_modules/.bin/jshint --verbose src/app" 
+    "jshint": "node_modules/.bin/jshint --verbose src/app"
   },
   "author": "",
   "license": "ISC",
