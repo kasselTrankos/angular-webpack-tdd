@@ -7,7 +7,7 @@ module.exports = {
   devtool:"source-map",
   entry: {
     app:[
-      './src/index.html',
+      //'./src/index.html',
       './src/app/main.js'
     ]
   },
@@ -55,16 +55,17 @@ module.exports = {
     function ReplaceBundleSrc() {
       //update html file
       this.plugin("done", function (stats) {
-
+        /*
         var opts = stats.compilation.options;
 
         var indexHtmlPath = path.join(opts.output.path, "index.html");
-        var originalHtmlPath = opts.entry.app[1];
+        var originalHtmlPath = opts.entry.app[0];
         var bundleJs = opts.output.filename.replace(/\[hash]/, stats.compilation.hash);
         fs.writeFileSync(
           indexHtmlPath,
           fs.readFileSync(originalHtmlPath, "utf8").replace(/% BUNDLE %/, bundleJs)
         );
+        */
       });
     }
   ]

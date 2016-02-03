@@ -1,6 +1,9 @@
 <div layout="row">
-  <md-input-container class="md-block" flex="90">
-    <label>Twitter Account</label>
-    <input ng-model="vm.account">
-  </md-input-container>
+  <form method="POST" action="//apitwitter/account">
+    <md-input-container class="md-block" flex="90">
+      <label>Twitter Account</label>
+      <input ng-model="vm.account">
+    </md-input-container>
+    <md-button class="md-raised md-primary">Guardar</md-button>
+  </form>
 </div>

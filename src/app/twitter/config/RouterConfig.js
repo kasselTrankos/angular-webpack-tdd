@@ -13,7 +13,6 @@ var RouterConfig = function($stateProvider, $urlRouterProvider, $locationProvide
     controllerAs:'vm'
   });
 
-
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false

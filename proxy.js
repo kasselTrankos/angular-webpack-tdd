@@ -25,7 +25,13 @@ app.use('/ws', function(req, res){ws.web(req, res);});
 app.get('/*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
+
 //# -----your-webpack-dev-server------------------
+config.entry.app.unshift(
+  'webpack-dev-server/client?http://localhost:3000',
+  'webpack/hot/dev-server'
+);
+config.plugins.push(new webpack.HotModuleReplacementPlugin());
 var server = new WebpackDevServer(webpack(config), {
   contentBase: "./public",
   hot:true,
