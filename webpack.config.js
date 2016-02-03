@@ -53,25 +53,6 @@ module.exports = {
     new ExtractTextPlugin('[name].html'),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    ),
-    function ReplaceBundleSrc() {
-      //update html file
-/*
-      this.plugin("done", function (stats) {
-
-        var opts = stats.compilation.options;
-
-        var indexHtmlPath = path.join(opts.output.path, "index.html");
-        var originalHtmlPath = opts.entry.app[0];
-
-
-        fs.writeFileSync(
-          indexHtmlPath,
-          fs.readFileSync(originalHtmlPath, "utf8").replace(/% PORT %/, PORT)
-        );
-
-      });
-      */
-    }
+    )
   ]
 };
