@@ -1,6 +1,6 @@
 import {Timeline} from './../../api';
 import {connect, close} from './../../db';
-import {findAllTweetsByAccount, PushMongoTimelineRest} from './../../db/querys';
+import {findAllTweetsByAccount, PushMongoTimelineRest} from './../../db';
 import Q from 'q';
 ////////////////////Frist last data by RESt. Then open socket
 export const get = (req, params)=>{
