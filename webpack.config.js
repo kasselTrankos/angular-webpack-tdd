@@ -3,6 +3,8 @@ var webpack = require('webpack'),
   path = require('path'),
   fs = require('fs');
 
+var PORT = process.env.PORT || 3000;
+
 module.exports = {
   devtool:"source-map",
   entry: {
@@ -42,7 +44,7 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [
-      path.resolve(__dirname, 'bower_components', 'angular-material-sass-files'),
+      path.resolve(__dirname, 'bower_components', 'angular-material'),
       path.resolve(__dirname, 'bower_components', 'font-awesome')
     ]
   },
@@ -54,19 +56,22 @@ module.exports = {
     ),
     function ReplaceBundleSrc() {
       //update html file
+/*
       this.plugin("done", function (stats) {
-        /*
+
         var opts = stats.compilation.options;
 
         var indexHtmlPath = path.join(opts.output.path, "index.html");
         var originalHtmlPath = opts.entry.app[0];
-        var bundleJs = opts.output.filename.replace(/\[hash]/, stats.compilation.hash);
+
+
         fs.writeFileSync(
           indexHtmlPath,
-          fs.readFileSync(originalHtmlPath, "utf8").replace(/% BUNDLE %/, bundleJs)
+          fs.readFileSync(originalHtmlPath, "utf8").replace(/% PORT %/, PORT)
         );
-        */
+
       });
+      */
     }
   ]
 };

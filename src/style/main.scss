@@ -1,11 +1,4 @@
-@import "style";
-@import "variables";
-@import "components/list";
-@import "components/input";
-@import "components/layout";
-@import "components/toolbar";
-@import "components/button";
-@import "components/typography";
+@import "angular-material.scss";
 /*@import "scss/variables.scss";
 $fa-font-path: "";
 
@@ -13,7 +6,7 @@ $fa-font-path: "";
 html, body {
   height: 100%;
   color: rgba(0, 0, 0, 0.87);
-  background: #669955;
+  background: #f0f0f0;
   position: relative;
   font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

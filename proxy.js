@@ -28,7 +28,7 @@ app.get('/*', function(req, res) {
 
 //# -----your-webpack-dev-server------------------
 config.entry.app.unshift(
-  'webpack-dev-server/client?http://localhost:3000',
+  'webpack-dev-server/client?http://' + host + ':' + port,
   'webpack/hot/dev-server'
 );
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
