@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-@import "angular-material.scss";
-=======
 @import "style";
+@import "mixins";
 @import "variables";
 @import "components/structure";
 @import "components/list";
@@ -10,7 +8,7 @@
 @import "components/toolbar";
 @import "components/button";
 @import "components/typography";
->>>>>>> old-state
+
 /*@import "scss/variables.scss";
 $fa-font-path: "";
 

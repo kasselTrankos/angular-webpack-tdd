@@ -44,7 +44,7 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [
-      path.resolve(__dirname, 'bower_components', 'angular-material'),
+      path.resolve(__dirname, 'bower_components', 'angular-material-sass-files'),
       path.resolve(__dirname, 'bower_components', 'font-awesome')
     ]
   },
