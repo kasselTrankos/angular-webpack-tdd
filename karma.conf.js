@@ -7,16 +7,12 @@ module.exports = function(config){
     basePath : './',
     specs: ['tests/e2e/*.js'],
     files : [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-material/angular-material.js',
-      'src/app/**/*.js'
+      'test/**/*.spec.js'
     ],
 
     autoWatch : true,
     preprocessors:{
-      'src/app/**/*.js':['webpack']
+      'src/app/main.js':['webpack']
     },
     browserify: {
       debug: true
@@ -70,7 +66,7 @@ module.exports = function(config){
       },
       sassLoader: {
         includePaths: [
-          path.resolve(__dirname, 'bower_components', 'angular-material'),
+          path.resolve(__dirname, 'bower_components', 'angular-material-sass-files'),
           path.resolve(__dirname, 'bower_components', 'font-awesome')
         ]
       },
