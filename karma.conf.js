@@ -5,14 +5,14 @@ module.exports = function(config){
   config.set({
 
     basePath : './',
-    specs: ['tests/e2e/*.js'],
     files : [
-      'test/**/*.spec.js'
+      'specs.js'
+
     ],
 
     autoWatch : true,
     preprocessors:{
-      'src/app/main.js':['webpack']
+      'specs.js':['webpack']
     },
     browserify: {
       debug: true

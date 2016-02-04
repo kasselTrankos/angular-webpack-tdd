@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 
 var babelrc = fs.readFileSync('./.babelrc');
@@ -20,7 +19,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 try {
-  
+
 	require("./twitter");
 }
 catch (error) {

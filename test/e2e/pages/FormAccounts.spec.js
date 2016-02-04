@@ -1,7 +1,7 @@
 describe('Person', function () {
 
   var Person;
-  beforeEach(module('twitter'));
+  beforeEach(angular.mock.module('twitter'));
 
 
   describe('Constructor', function () {
