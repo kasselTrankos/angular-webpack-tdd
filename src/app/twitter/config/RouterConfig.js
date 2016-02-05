@@ -3,7 +3,7 @@ var RouterConfig = function($stateProvider, $urlRouterProvider, $locationProvide
   'use strict';
   $urlRouterProvider
   .otherwise('/');
-
+  
   $stateProvider
   .state('home', {
     url: '/',

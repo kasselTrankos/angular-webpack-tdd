@@ -4,12 +4,14 @@ var webpack = require('webpack'),
   fs = require('fs');
 
 var PORT = process.env.PORT || 3000;
+var HOST = process.env.HOST || 'localhost';
 
 module.exports = {
+  context: __dirname,
   devtool:"source-map",
   entry: {
     app:[
-      //'./src/index.html',
+      'webpack-dev-server/client?http://' + HOST + ':' + PORT,
       './src/app/main.js'
     ]
   },
@@ -18,10 +20,11 @@ module.exports = {
     extensions: ['', '.js']
   },
   output: {
+    path: path.resolve(__dirname, 'public', 'assets', 'js'),
     sourceMapFilename:'[file].map',
-    publicPath: '/assets/js/',
-    filename: '[name].js',
-    path: path.resolve(__dirname , 'public')
+    publicPath: '/',
+    filename: '[name].js'
+
   },
   module: {
     loaders: [
@@ -34,7 +37,7 @@ module.exports = {
         loader:'html'
       }, {
         test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
-        loader: 'file?name=fonts/[name].[ext]'
+        loader: 'file?name=../../fonts/[name].[ext]'
       }, {
         test: /\.css$/,
         loader: "style!css"
@@ -50,6 +53,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('assets/css/[name].css'),
+    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('[name].html'),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])

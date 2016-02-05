@@ -13,3 +13,5 @@ so run it by:
 ```bash
 npm run proxy
 ```
+Then you can watch the application working in
+[http://localhost:3001](http://localhost:3001)

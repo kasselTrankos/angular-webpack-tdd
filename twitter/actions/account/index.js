@@ -11,23 +11,23 @@ export const post = (req, params)=> {
     })
     .then((doc)=>{
       disconnect();
-      return GetAll();
+      return {data: GetAll()};
     })
     .catch((err)=>{
       console.log('ERR in account post', err);
       disconnect();
     });
 
-}
+};
 export const get = (req, params)=> {
   connect();
   return GetAllAccounts()
     .then((docs)=>{
       disconnect();
-      return docs
+      return {data: docs};
     })
     .catch((err)=>{
       console.log('ERR in account get', err);
       disconnect();
     });
-}
+};

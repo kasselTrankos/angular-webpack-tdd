@@ -22,25 +22,26 @@ var ws = httpProxy.createProxyServer({
   target: apiTwitter,
   ws:true
 });
+app.use(express.static('public'));
 app.use('/apitwitter', proxy(url.parse(apiTwitter)));
 app.use('/ws', function(req, res){ws.web(req, res);});
 app.get('/*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 ///using folder of the webpack-server, not custom that give static files better
-app.use('/assets', proxy(url.parse('http://localhost:3000/assets')));
+//app.use('/assets/*', proxy(url.parse('http://localhost:3000/assets')));
 //# -----your-webpack-dev-server------------------
-/*config.entry.app.unshift(
-  'webpack-dev-server/client?http://' + host + ':' + port,
-  'webpack/hot/dev-server'
+/*
+config.entry.app.unshift(
+  'webpack-dev-server/client?http://' + host + ':' + port
 );
 config.plugins.push(new webpack.HotModuleReplacementPlugin());*/
 var server = new WebpackDevServer(webpack(config), {
   contentBase: "./public",
-  //hot:true,
+  hot:true,
 	quiet: false,
 	filename: "assets/js/main.js",
-  //inline: true,
+  inline: true,
   noInfo:true,
 	quiet: false,
   publicPath:  config.output.publicPath,
