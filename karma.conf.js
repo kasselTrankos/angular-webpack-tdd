@@ -23,7 +23,7 @@ module.exports = function(config){
     browserify: {
       debug: true
     },
-    frameworks: ['mocha', 'chai', 'sinon-chai'],
+    frameworks: ['mocha', 'chai', 'sinon', 'sinon-chai'],
 
     browsers : ['Chrome'],
     // web server port
@@ -41,6 +41,7 @@ module.exports = function(config){
       'karma-firefox-launcher',
       'karma-spec-reporter',
       'karma-sinon-chai',
+      'karma-sinon',
       //'karma-phantomjs-launcher',
       'karma-mocha',
       'karma-chai',
