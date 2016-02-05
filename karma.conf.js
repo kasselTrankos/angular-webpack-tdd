@@ -7,9 +7,15 @@ module.exports = function(config){
     basePath : './',
     files : [
       'specs.js'
-
     ],
-
+    reporters: ['spec'],
+    specReporter: {
+      maxLogLines: 5,         // limit number of lines logged per test
+      suppressErrorSummary: true,  // do not print error summary
+      suppressFailed: false,  // do not print information about failed tests
+      suppressPassed: false,  // do not print information about passed tests
+      suppressSkipped: true  // do not print information about skipped tests
+    },
     autoWatch : true,
     preprocessors:{
       'specs.js':['webpack']
@@ -17,7 +23,7 @@ module.exports = function(config){
     browserify: {
       debug: true
     },
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon-chai'],
 
     browsers : ['Chrome'],
     // web server port
@@ -30,14 +36,16 @@ module.exports = function(config){
     logLevel: config.LOG_INFO,
 
     plugins : [
-        require("karma-webpack"),
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            //'karma-phantomjs-launcher',
-            'karma-mocha',
-            'karma-chai',
-            'karma-junit-reporter'
-            ],
+      require("karma-webpack"),
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-spec-reporter',
+      'karma-sinon-chai',
+      //'karma-phantomjs-launcher',
+      'karma-mocha',
+      'karma-chai',
+      'karma-junit-reporter'
+    ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',

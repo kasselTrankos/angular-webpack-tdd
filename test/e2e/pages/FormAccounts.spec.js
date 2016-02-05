@@ -1,4 +1,4 @@
-describe('Person', function () {
+describe('Twitter::Form Page', function () {
   var scope, ctrl, location;
   beforeEach(angular.mock.module('twitter'));
   beforeEach(angular.mock.module('ui.router'));
@@ -8,12 +8,10 @@ describe('Person', function () {
     location = $location;
   }));
 
-  describe('Constructor', function () {
 
-    it('should expect stationId to be undefined if stationId not defined in route parameters', function () {
-      expect(scope.stationId).to.be.undefined;
-    });
 
+  it('should expect stationId to be undefined if stationId not defined in route parameters', function () {
+    expect(scope.stationId).to.be.undefined;
   });
 
 });
