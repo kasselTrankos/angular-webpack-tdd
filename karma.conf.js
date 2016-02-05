@@ -24,7 +24,7 @@ module.exports = function(config){
     },
     frameworks: ['mocha', 'chai', 'sinon', 'sinon-chai'],
 
-    browsers : ['Chrome'],
+    browsers : ['PhantomJS'],
     // web server port
     port: 9876,
 

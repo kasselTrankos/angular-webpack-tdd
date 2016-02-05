@@ -1,5 +1,5 @@
 'use strict';
-describe('Twitter::Form Page', function () {
+describe('Twitter::FormController', function () {
 
   var scope, ctrl, location, accountService;
   beforeEach(angular.mock.module('twitter'));
@@ -15,9 +15,10 @@ describe('Twitter::Form Page', function () {
     expect(accountService.loadAccounts).to.have.been.called;
   });
   it('expect account var is definded', function () {
-    console.log(ctrl, ' joder');
     expect(ctrl.account).to.not.be.undefined;
   });
-
+  it('expect accounts has \'loading\', \'error\' and \'data\'', function () {
+    expect(ctrl.accounts).to.contain.all.keys(['loading', 'error', 'data']);
+  });
 
 });

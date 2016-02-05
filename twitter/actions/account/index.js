@@ -1,33 +1,33 @@
-
-import {connect, close, TwitterAccountModel} from './../../db';
-import {SaveNewAccount, ExitsAccount, GetAll} from './../../db/account';
-//import {UnionUnique} from './../../utils/url';
+import {connect, disconnect, TwitterAccountMode ,
+  SaveNewAccount,  GetAllAccounts} from './../../db';
 import Q from 'q';
 export const post = (req, params)=> {
   connect();
   const {name} = req.body;
   return SaveNewAccount(name)
-  .then((doc)=>{
-    if(doc===null) return SaveNewAccount(name);
-    return doc;
-  })
-  .then((doc)=>GetAll())
-  .catch((err)=>{
-    console.log(err);
-    close();
-  });
+    .then((doc)=>{
+      if(doc===null) return SaveNewAccount(name);
+      return doc;
+    })
+    .then((doc)=>{
+      disconnect();
+      return GetAll();
+    })
+    .catch((err)=>{
+      console.log('ERR in account post', err);
+      disconnect();
+    });
 
 }
 export const get = (req, params)=> {
   connect();
-  return GetAll()
-  .then((docs)=>{
-    close();
-    return docs
-  })
-  .catch((err)=>{
-    close();
-    console.log(err);
-
-  })
+  return GetAllAccounts()
+    .then((docs)=>{
+      disconnect();
+      return docs
+    })
+    .catch((err)=>{
+      console.log('ERR in account get', err);
+      disconnect();
+    });
 }

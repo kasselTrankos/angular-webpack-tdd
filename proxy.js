@@ -15,7 +15,9 @@ var twitter_port = process.env.PORT_TWITTER || 3040;
 var dev_webpack_port = process.env.DEV_WEBPACK_PORT || 3001;
 //## --------your proxy----------------------
 var apiTwitter = 'http://'+host+':'+twitter_port;
+
 var app = express();
+
 var ws = httpProxy.createProxyServer({
   target: apiTwitter,
   ws:true
@@ -25,19 +27,20 @@ app.use('/ws', function(req, res){ws.web(req, res);});
 app.get('/*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
-
+///using folder of the webpack-server, not custom that give static files better
+app.use('/assets', proxy(url.parse('http://localhost:3000/assets')));
 //# -----your-webpack-dev-server------------------
-config.entry.app.unshift(
+/*config.entry.app.unshift(
   'webpack-dev-server/client?http://' + host + ':' + port,
   'webpack/hot/dev-server'
 );
-config.plugins.push(new webpack.HotModuleReplacementPlugin());
+config.plugins.push(new webpack.HotModuleReplacementPlugin());*/
 var server = new WebpackDevServer(webpack(config), {
   contentBase: "./public",
-  hot:true,
+  //hot:true,
 	quiet: false,
-	filename: "assets/main.js",
-  inline: true,
+	filename: "assets/js/main.js",
+  //inline: true,
   noInfo:true,
 	quiet: false,
   publicPath:  config.output.publicPath,
@@ -49,4 +52,6 @@ var server = new WebpackDevServer(webpack(config), {
 server.listen(port, host, function() {
   console.info('==>:::WEBPACK--APP is running at http://%s:%s', host, port);
 });
-app.listen(dev_webpack_port);
+app.listen(dev_webpack_port, host, function(){
+  console.info('==>:::APP is running at http://%s:%s', host, dev_webpack_port);
+});
