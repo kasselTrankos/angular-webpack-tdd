@@ -12,6 +12,7 @@ module.exports = {
   entry: {
     app:[
       'webpack-dev-server/client?http://' + HOST + ':' + PORT,
+      'webpack/hot/dev-server',
       './src/app/main.js'
     ]
   },

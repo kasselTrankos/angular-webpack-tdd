@@ -23,6 +23,9 @@ var ws = httpProxy.createProxyServer({
   ws:true
 });
 app.use(express.static('public'));
+app.use(/\.hot\-update\.json$/i, function(req, res){
+  console.log('joder mierda');
+} /*proxy(url.parse('http://localhost:3000'))*/)
 app.use('/apitwitter', proxy(url.parse(apiTwitter)));
 app.use('/ws', function(req, res){ws.web(req, res);});
 app.get('/*', function(req, res) {
