@@ -1,4 +1,5 @@
 module.exports = function(tweets, tweetPerPage, showPagesPagination){
+  'use strict';
   var Tweets = tweets || false;
   var TweetPerPage = tweetPerPage || 10;
   var ShowPagesPagination = showPagesPagination || 10;
@@ -6,9 +7,18 @@ module.exports = function(tweets, tweetPerPage, showPagesPagination){
   function getPages() {
     return Math.ceil(Tweets/TweetPerPage);
   }
+  function getMiddlePage(){
+    return Math.ceil(showPagesPagination/2);
+  }
+  function lessThanMiddle(){
+    return (currentPage<=getMiddlePage());
+  }
+
+  function isinLastSectionPagination(){
+    return (currentPage>=parseInt(getPages()-ShowPagesPagination));
+  }
   function setActualPage(page){
     currentPage = page;
-    return this;
   }
  function getFirstPage(){
     return  (lessThanMiddle()) ?
@@ -16,15 +26,8 @@ module.exports = function(tweets, tweetPerPage, showPagesPagination){
       (isinLastSectionPagination()) ? parseInt(getPages()-ShowPagesPagination)
       : Math.ceil(currentPage-getMiddlePage());
   }
-  function lessThanMiddle(){
-    return (currentPage<=getMiddlePage());
-  }
-  function getMiddlePage(){
-    return Math.ceil(showPagesPagination/2);
-  }
-  function isinLastSectionPagination(){
-    return (currentPage>=parseInt(getPages()-ShowPagesPagination));
-  }
+
+
   function showNavigationNextButton() {
     return (!isinLastSectionPagination());
   }

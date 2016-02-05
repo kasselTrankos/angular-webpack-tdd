@@ -12,12 +12,14 @@ describe('Pagination for Tweets', function() {
       expect(Pagination(Tweets, TweetsByPage).getPages()).to.equal(19);
     });
     it("Expect first page of pagination the 3, when page actual is 3 or 6", function(){
-      expect(Pagination(Tweets, TweetsByPage, ShowPagesPagination)
-      .setActualPage(6).getFirstPage()).to.equal(3);
+      var pagination = Pagination(Tweets, TweetsByPage, ShowPagesPagination);
+      pagination.setActualPage(6);
+      expect(pagination.getFirstPage()).to.equal(3);
     });
     it('Expect to show next navigation button when page is 10', function(){
-      expect(Pagination(Tweets, TweetsByPage, ShowPagesPagination)
-      .setActualPage(10).showNavigationNextButton()).to.be.true;
+      var pagination = Pagination(Tweets, TweetsByPage, ShowPagesPagination);
+      pagination.setActualPage(10);
+      expect(pagination.showNavigationNextButton()).to.be.true;
     });
   });
 });

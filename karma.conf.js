@@ -3,7 +3,6 @@ var webpack = require('webpack'),
   path = require('path');
 module.exports = function(config){
   config.set({
-
     basePath : './',
     files : [
       'specs.js'
@@ -42,7 +41,7 @@ module.exports = function(config){
       'karma-spec-reporter',
       'karma-sinon-chai',
       'karma-sinon',
-      //'karma-phantomjs-launcher',
+      'karma-phantomjs-launcher',
       'karma-mocha',
       'karma-chai',
       'karma-junit-reporter'

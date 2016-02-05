@@ -1,9 +1,16 @@
 {
   "curly": true,
+  "freeze": true,
   "eqeqeq": true,
   "undef": true,
   "undef": true,
   "unused": true,
+  "strict":true,
+  "latedef":true,
+  "maxdepth":2,
+  "maxparams":3,
+  "nocomma":true,
+  "quotmark":"single",
   "globals": {
     "angular"   : false,
     "module"    : false,
