@@ -1,4 +1,3 @@
-
 /* @ngInject */
 var RouterConfig = function($stateProvider, $urlRouterProvider, $locationProvider){
 

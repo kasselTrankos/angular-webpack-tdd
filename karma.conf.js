@@ -43,6 +43,9 @@ module.exports = function(config){
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
     },
+    webpackMiddleware: {
+      noInfo: true
+    },
     webpack:{
       devtool:"source-map",
       module: {
