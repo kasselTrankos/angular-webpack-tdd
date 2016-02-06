@@ -23,6 +23,8 @@ var ws = httpProxy.createProxyServer({
   ws:true
 });
 app.use(express.static('public'));
+//app.use('/assets', proxy(url.parse('http://localhost:3001/assets')));
+//app.use('/fonts', proxy(url.parse('http://localhost:3001/fonts')));
 app.use(/\.hot\-update\.json$/i, function(req, res){
   console.log('joder mierda');
 } /*proxy(url.parse('http://localhost:3000'))*/)
@@ -43,11 +45,11 @@ var server = new WebpackDevServer(webpack(config), {
   contentBase: "./public",
   hot:true,
 	quiet: false,
-	filename: "assets/js/main.js",
+	filename: "assets/js/app.js",
   inline: true,
   noInfo:true,
 	quiet: false,
-  publicPath:  config.output.publicPath,
+  publicPath:  '/',
   stats: { colors: true },
 	headers: { 'Access-Control-Allow-Origin': '*' }
 });

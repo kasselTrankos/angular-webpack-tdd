@@ -9,7 +9,7 @@ describe('Twiitter:: Service Account', function () {
   }));
 
   it('expect accounts have that keys: \'name\' and \'_id\'', function () {
-    httpBackend.whenGET("//apitwitter/accounts").respond({
+    httpBackend.whenGET("http://localhost:3001/apitwitter/account").respond({
         data:[
           {name: 'kasselTrankos', _id: 1},
           {name:'perraco', _id: 2}

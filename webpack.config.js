@@ -23,7 +23,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public', 'assets', 'js'),
     sourceMapFilename:'[file].map',
-    publicPath: '/',
+    publicPath: 'http://' + HOST + ':' + PORT + '/',
     filename: '[name].js'
 
   },
